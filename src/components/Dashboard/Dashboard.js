@@ -1,29 +1,23 @@
 import React from 'react'
 import './Dashboard.scss'
+import ListJSX from './ListJSX'
 
-export const Dashboard = (props) => (
+export const Dashboard = ({ visitsCount, dashboardItems }) => (
   <div>
     <h2 className='dashboardContainer'>
-      Dashboard:
+      Dashboard visits:
       {' '}
       <span className='dashboard--green'>
-        {props.dashboard}
+        {visitsCount}
       </span>
     </h2>
-    <button className='btn btn-default' onClick={props.increment}>
-      Increment
-    </button>
-    {' '}
-    <button className='btn btn-default' onClick={props.doubleAsync}>
-      Double (Async)
-    </button>
+    <ListJSX dashboardItems={dashboardItems} />
   </div>
 )
 
 Dashboard.propTypes = {
-  dashboard     : React.PropTypes.number.isRequired,
-  doubleAsync : React.PropTypes.func.isRequired,
-  increment   : React.PropTypes.func.isRequired
+  dashboardItems : React.PropTypes.array.isRequired,
+  visitsCount: React.PropTypes.number.isRequired
 }
 
 export default Dashboard

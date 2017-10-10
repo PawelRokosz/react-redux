@@ -6,7 +6,7 @@ export const DASHBOARD_INCREMENT = 'DASHBOARD_INCREMENT'
 // ------------------------------------
 // Actions
 // ------------------------------------
-export function increment (value = 1) {
+export function dashboardVisitIncrement (value = 1) {
   return {
     type    : DASHBOARD_INCREMENT,
     payload : value
@@ -17,33 +17,33 @@ export function increment (value = 1) {
     returns a function for lazy evaluation. It is incredibly useful for
     creating async actions, especially when combined with redux-thunk! */
 
-export const doubleAsync = () => {
-  return (dispatch, getState) => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        dispatch(increment(getState().dashboard))
-        resolve()
-      }, 200)
-    })
-  }
-}
-
 export const actions = {
-  increment,
-  doubleAsync
+  dashboardVisitIncrement
 }
 
 // ------------------------------------
 // Action Handlers
 // ------------------------------------
 const ACTION_HANDLERS = {
-  [DASHBOARD_INCREMENT]    : (state, action) => state + action.payload
+  [DASHBOARD_INCREMENT]    : (state, action) => ({
+    ...state,
+    visitsCount: state.visitsCount + action.payload
+  })
 }
 
 // ------------------------------------
 // Reducer
 // ------------------------------------
-const initialState = 0
+const initialState = {
+  visitsCount: 0,
+  dashboardItems: [
+    { label: 'Angular' },
+    { label: 'JQuery' },
+    { label: 'Polymer' },
+    { label: 'ReactJS' }
+  ]
+}
+
 export default function dashboardReducer (state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type]
 
