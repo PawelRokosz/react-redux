@@ -1,0 +1,12 @@
+%dashboard {
+  font-weight: bold;
+}
+
+.dashboard--green {
+  @extend %dashboard;
+  color: rgb(25, 200, 25);
+}
+
+.dashboardContainer {
+  margin: 1em auto;
+}
