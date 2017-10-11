@@ -44,4 +44,6 @@ export class CoreLayout extends Component {
   }
 }
 
+console.log('asdf')
+
 export default connect(mapStateToProps, mapActionCreators)(CoreLayout)
