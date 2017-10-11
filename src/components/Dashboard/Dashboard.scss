@@ -2,6 +2,14 @@
   font-weight: bold;
 }
 
+.dashboard-add-form {
+  width: 300px;
+}
+
+.dashboard-list-item {
+  cursor: pointer;
+}
+
 .dashboard--green {
   @extend %dashboard;
   color: rgb(25, 200, 25);

@@ -1,6 +1,10 @@
 import { connect } from 'react-redux'
-import { dashboardVisitIncrement } from '../modules/dashboard'
-
+import {
+  dashboardAddItem,
+  dashboardEditItem,
+  dashboardVisitIncrement,
+  dashboardReorderItems
+} from '../modules/dashboard'
 /*  This is a container component. Notice it does not contain any JSX,
     nor does it import React. This component is **only** responsible for
     wiring in the actions and state necessary to render a presentational
@@ -13,11 +17,15 @@ import DashboardRoute from '../components/Dashboard'
     implementing our wrapper around increment; the component doesn't care   */
 
 const mapDispatchToProps = {
-  dashboardVisitIncrement: () => dashboardVisitIncrement(1)
+  dashboardVisitIncrement: () => dashboardVisitIncrement(1),
+  dashboardAddItem,
+  dashboardEditItem,
+  dashboardReorderItems
 }
 
 const mapStateToProps = (state) => ({
-  dashboard : state.dashboard
+  dashboard : state.dashboard,
+  session: state.session
 })
 
 /*  Note: mapStateToProps is where you should use `reselect` to create selectors, ie:
