@@ -16,7 +16,7 @@ export class Dashboard extends React.Component {
     editedItemIndex: null
   }
 
-  handleOnDragStart = ev => this.setState({ draggedItemIndex: ev.targetid })
+  handleOnDragStart = ev => this.setState({ draggedItemIndex: ev.target.id })
 
   handleOnDragOver = ev => {
     ev.preventDefault()
@@ -25,6 +25,8 @@ export class Dashboard extends React.Component {
 
   handleOnDrop = ev => {
     const droppedItemId = ev.currentTarget.id
+    console.log('itemid: ' + droppedItemId);
+    console.log(ev.currentTarget)
     if (this.state.editedItemIndex === null) {
       this.props.reorderItem({
         start: this.state.draggedItemIndex,

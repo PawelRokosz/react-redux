@@ -27,7 +27,9 @@ class DashboardRoute extends React.Component {
     start = parseInt(start)
 
     const reorderIsCorrect = !isNaN(start) && !isNaN(end) && start !== end
+    console.log(start, end, reorderIsCorrect)
     if (reorderIsCorrect) {
+      console.log('if')
       this.props.dashboardReorderItems({ start, end })
     }
   }

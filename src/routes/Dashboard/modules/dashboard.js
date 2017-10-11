@@ -66,7 +66,7 @@ const ACTION_HANDLERS = {
     }
   },
   [DASHBOARD_EDIT_ITEM]: (state, action) => {
-    const { label, edititemIndex: index } = action.payload
+    const { label, editItemIndex: index } = action.payload
     let newItem = {
       ...state.dashboardItems[index],
       label
@@ -87,7 +87,7 @@ const ACTION_HANDLERS = {
     const element = state.dashboardItems[currPosIndex]
     let dashboardItems = [
       ...state.dashboardItems.slice(0, currPosIndex),
-      ...state.dashboarditems.slice(currPosIndex + 1)
+      ...state.dashboardItems.slice(currPosIndex + 1)
     ]
 
     dashboardItems.splice(nextPosIndex, 0, element)
